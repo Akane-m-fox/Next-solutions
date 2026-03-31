@@ -349,6 +349,7 @@ ul {
 .news-inner {
     display: flex;
     gap: 60px;
+    align-items: flex-start;
 }
 
 .news .section-title {
