@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>株式会社ネクストソリューションズ | 地域密着型DX・ITコンサルティング</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .header-transparent {
+            background-color: transparent;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            box-shadow: none;
+            border-bottom: none;
+            transition: transform 0.3s ease, background-color 0.3s ease 0.1s, backdrop-filter 0.3s ease 0.1s, box-shadow 0.3s ease 0.1s;
+        }
+        .header-transparent .global-nav ul li a {
+            color: #fff;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+        .header-transparent .btn-contact-header {
+            color: #fff;
+            border-color: #fff;
+        }
+        .header-transparent .menu-toggle span {
+            background-color: #fff;
+        }
+        .header-transparent.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        .header-transparent.scrolled .global-nav ul li a {
+            color: #333;
+            text-shadow: none;
+        }
+        .header-transparent.scrolled .btn-contact-header {
+            color: #007bff; /* style.cssでの定義を想定 */
+            border-color: #007bff; /* style.cssでの定義を想定 */
+        }
+        .header-transparent.scrolled .menu-toggle span {
+            background-color: #333;
+        }
+        /* FVを画面最上部から表示し、高さをビューポートに合わせる */
+        .fv {
+            margin-top: 0;
+            height: 100vh;
+        }
+        .news-more-btn {
+            display: none; /* PCではボタンを非表示 */
+        }
+
+        /* スマートフォン表示（横幅768px以下）のお知らせセクションの調整 */
+        @media (max-width: 768px) {
+            .news-more-btn {
+                display: block; /* スマホではボタンを表示 */
+            }
+            .news-list {
+                display: block; /* 2列グリッドを解除 */
+            }
+            .news-list li {
+                transition-delay: 0s !important; /* アニメーションの遅延をリセット */
+            }
+            /* 3件目以降を非表示にする */
+            .news-list li:nth-child(n+3) {
+                display: none;
+            }
+            .news-list li a {
+                /* カード型デザインをリセットし、シンプルな箇条書き風に */
+                display: block;
+                padding: 15px 0;
+                border-bottom: 1px solid #eee;
+                border-radius: 0;
+                height: auto;
+            }
+            .news-list .news-title {
+                margin-top: 5px;
+                /* 省略表示関連のスタイルを全てリセット */
+                display: block;
+                -webkit-line-clamp: unset;
+                -webkit-box-orient: unset;
+                overflow: visible;
+                white-space: normal;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ローディング画面 -->
+    <div id="loading" class="loading">
+        <div class="loading-inner">
+            <img src="images/logo.png" alt="Next Solutions" class="loading-logo">
+            <div class="spinner"></div>
+        </div>
+    </div>
+
+    <header class="header header-transparent">
+        <div class="container header-inner">
+            <a href="index.html" class="logo"><img src="images/logo.png" alt="Next Solutions"></a>
+            <nav class="global-nav">
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="service.html">事業内容</a></li>
+                    <li><a href="company.html">会社概要</a></li>
+                    <li><a href="index.html#news">お知らせ</a></li> 
+                </ul>
+                <a href="contact.html" class="btn-contact-header">お問い合わせ</a>
+            </nav>
+            <button class="menu-toggle">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <section class="fv">
+        <div class="fv-bg">
+            <video src="images/fv-bg.mp4" autoplay loop muted playsinline></video>
+        </div>
+        <div class="container fv-content">
+            <h1 class="fv-catch fade-in-up">中小企業のDXを、<br>地域密着で支援します。</h1>
+            <p class="fv-sub fade-in-up" style="transition-delay: 0.2s;">創業からの信頼と、最新のIT技術。<br>私たちは、中小企業の課題に寄り添うDX推進パートナーです。</p>
+            <p class="fade-in-up" style="transition-delay: 0.4s;">
+            ネクストソリューションズは、地域の中小企業に特化したDX・ITコンサルティングを提供しています。現場主義でお客様のビジネス成長を支援します。</p>
+        </div>
+    </section>
+
+    <section id="news" class="news section-padding">
+        <div class="container news-inner">
+            <h2 class="section-title fade-in-up">お知らせ<span>News</span></h2>
+            <ul class="news-list">
+                <li class="fade-in-up">
+                    <a href="#">
+                        <time datetime="2026-03-20">2026.03.20</time>
+                        <span class="category cat-info">お知らせ</span>
+                        <p class="news-title">「IT導入補助金2026」の支援事業者として採択されました。</p>
+                    </a>
+                </li>
+                <li class="fade-in-up" style="transition-delay: 0.1s;">
+                    <a href="#">
+                        <time datetime="2026-03-10">2026.03.10</time>
+                        <span class="category cat-press">プレス</span>
+                        <p class="news-title">本社オフィス移転に関するお知らせ</p>
+                    </a>
+                </li>
+                <li class="fade-in-up" style="transition-delay: 0.2s;">
+                    <a href="#">
+                        <time datetime="2026-02-15">2026.02.15</time>
+                        <span class="category cat-info">お知らせ</span>
+                        <p class="news-title">新サービス「クラウド型在庫管理システム」の提供を開始しました。</p>
+                    </a>
+                </li>
+                <li class="fade-in-up" style="transition-delay: 0.3s;">
+                    <a href="#">
+                        <time datetime="2026-01-28">2026.01.28</time>
+                        <span class="category cat-press">プレス</span>
+                        <p class="news-title">【開催レポート】製造業向けDX推進セミナーを実施しました。</p>
+                    </a>
+                </li>
+                <li class="fade-in-up" style="transition-delay: 0.4s;">
+                    <a href="#">
+                        <time datetime="2025-12-22">2025.12.22</time>
+                        <span class="category cat-info">お知らせ</span>
+                        <p class="news-title">年末年始休業のお知らせ（2025年12月28日～2026年1月4日）</p>
+                    </a>
+                </li>
+                <li class="fade-in-up" style="transition-delay: 0.5s;">
+                    <a href="#">
+                        <time datetime="2025-11-05">2025.11.05</time>
+                        <span class="category cat-info">お知らせ</span>
+                        <p class="news-title">コーポレートサイトをリニューアルしました。</p>
+                    </a>
+                </li>
+                <li class="fade-in-up" style="transition-delay: 0.6s;">
+                    <a href="#">
+                        <time datetime="2025-10-01">2025.10.01</time>
+                        <span class="category cat-press">プレス</span>
+                        <p class="news-title">導入事例に「株式会社〇〇製作所様」のインタビュー記事を掲載しました。</p>
+                    </a>
+                </li>
+                <li class="fade-in-up" style="transition-delay: 0.7s;">
+                    <a href="#">
+                        <time datetime="2025-09-15">2025.09.15</time>
+                        <span class="category cat-info">お知らせ</span>
+                        <p class="news-title">2026年度新卒採用サイトをオープンしました。</p>
+                    </a>
+                </li>
+                <li class="fade-in-up" style="transition-delay: 0.8s;">
+                    <a href="#">
+                        <time datetime="2025-08-01">2025.08.01</time>
+                        <span class="category cat-info">お知らせ</span>
+                        <p class="news-title">夏季休業のお知らせ</p>
+                    </a>
+                </li>
+            </ul>
+            <div class="news-more-btn text-center mt-40 fade-in-up">
+                <a href="#" class="btn-outline">お知らせ一覧を見る</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features section-padding">
+        <div class="container">
+            <h2 class="section-title text-center fade-in-up">ネクストソリューションズが選ばれる理由<span>Why Choose Us</span></h2>
+            <div class="features-grid">
+                <div class="feature-item fade-in-up">
+                    <div class="feature-num">01</div>
+                    <h3>現場目線の<br>徹底したヒアリング</h3>
+                    <p>ITツールを押し付けるのではなく、現場で実際に働く方々の声を第一に聞きます。現状の業務フローの泥臭い部分まで深く理解した上で、本当に必要なデジタル化をご提案します。</p>
+                </div>
+                <div class="feature-item fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="feature-num">02</div>
+                    <h3>導入から定着まで<br>ワンストップ支援</h3>
+                    <p>システムを開発・導入して終わりではありません。社内マニュアルの作成から操作研修、運用保守まで、ITに不慣れな企業様でも確実に効果が出るよう継続的に伴走します。</p>
+                </div>
+                <div class="feature-item fade-in-up" style="transition-delay: 0.4s;">
+                    <div class="feature-num">03</div>
+                    <h3>地域密着型の<br>スピーディーな対応</h3>
+                    <p>地域経済を支える中小企業様に特化しているからこそ、フットワーク軽くスピーディーな対応が可能です。対面での打ち合わせはもちろん、オンラインでも密なコミュニケーションを図ります。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="service section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title text-center fade-in-up">事業内容<span>Service</span></h2>
+            <p class="text-center mb-40 fade-in-up">お客様の課題に合わせて、3つの領域から最適なITソリューションを提供します。</p>
+            <div class="service-grid">
+                <div class="service-card fade-in-up">
+                    <div class="service-icon"><img src="images/image_2.jpg" alt="DXコンサルティング"></div>
+                    <h3>DXコンサルティング</h3>
+                    <p>業務フローの見直しからITツールの導入・定着まで、伴走型でサポートいたします。</p>
+                </div>
+                <div class="service-card fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="service-icon"><img src="images/image_3.jpg" alt="システム開発"></div>
+                    <h3>システム開発</h3>
+                    <p>貴社独自の業務プロセスに最適化された、無駄のないオリジナルシステムを構築します。</p>
+                </div>
+                <div class="service-card fade-in-up" style="transition-delay: 0.4s;">
+                    <div class="service-icon"><img src="images/image_4.jpg" alt="Webサイト制作"></div>
+                    <h3>Webサイト制作</h3>
+                    <p>企業の顔となるコーポレートサイトを、成果につながるデザインと設計で制作します。</p>
+                </div>
+            </div>
+            <div class="text-center mt-40">
+                <a href="service.html" class="btn-primary">事業内容の詳細を見る</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="case-study section-padding">
+        <div class="container">
+            <h2 class="section-title fade-in-up">導入事例<span>Case Study</span></h2>
+            <div class="case-grid">
+                <a href="#" class="case-card fade-in-up">
+                    <div class="case-image"><img src="images/image_2.jpg" alt="事例1"></div>
+                    <div class="case-content">
+                        <span class="case-category">製造業</span>
+                        <h3 class="case-title">紙の図面管理をクラウド化し、確認作業の時間を月間40時間削減</h3>
+                        <p class="case-client">株式会社〇〇製作所 様</p>
+                    </div>
+                </a>
+                <a href="#" class="case-card fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="case-image"><img src="images/image_3.jpg" alt="事例2"></div>
+                    <div class="case-content">
+                        <span class="case-category">小売業</span>
+                        <h3 class="case-title">複数店舗の在庫管理を統合する独自システムを開発、欠品率を大幅に改善</h3>
+                        <p class="case-client">〇〇リテール株式会社 様</p>
+                    </div>
+                </a>
+            </div>
+            <div class="text-center mt-40 fade-in-up">
+                <a href="#" class="btn-outline">導入事例一覧を見る</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="company section-padding">
+        <div class="container company-inner">
+            <div class="company-image fade-in-up">
+                <img src="images/image_5.jpg" alt="私たちについて">
+            </div>
+            <div class="company-text fade-in-up" style="transition-delay: 0.2s;">
+                <h2 class="section-title">私たちについて<span>About Us</span></h2>
+                <h3 class="company-catch">地域企業の「頼れる右腕」として、<br>ビジネスの成長を支援します。</h3>
+                <p>株式会社ネクストソリューションズは、地域に密着したBtoB向けのDX・ITコンサルティング企業です。<br>最新のテクノロジーを活用しながらも、常に「現場で働く人」を中心に据えた提案を行い、お客様の持続的な成長を共に実現していくパートナーを目指しています。</p>
+                <div class="mt-40">
+                    <a href="company.html" class="btn-outline">会社概要・代表挨拶を見る</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-cta">
+        <div class="container text-center fade-in-up">
+            <h2>ITに関するお悩み、お気軽にご相談ください。</h2>
+            <p>専門のコンサルタントが無料でヒアリング・お見積もりを実施いたします。</p>
+            <a href="contact.html" class="btn-primary btn-large mt-20">無料相談・お問い合わせ</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-info">
+                <div class="footer-logo"><img src="images/logo.png" alt="Next Solutions"></div>
+                <p>〒100-0000<br>東京都〇〇区〇〇 1-2-3 XXビル 4F<br>TEL: 03-XXXX-XXXX</p>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="service.html">事業内容</a></li>
+                    <li><a href="company.html">会社概要</a></li>
+                    <li><a href="index.html#news">お知らせ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-copy">
+            <p>&copy; 2026 Next Solutions Inc. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ローディング画面の制御
+        let isLoaded = false;
+        const loading = document.getElementById('loading');
+        
+        window.addEventListener('load', () => {
+            isLoaded = true;
+            if (loading) {
+                loading.classList.remove('is-active');
+                loading.classList.add('is-loaded');
+            }
+        });
+
+        // 読み込みに時間がかかる場合（500ms以上）のみローディング画面を表示
+        setTimeout(() => {
+            if (!isLoaded && loading) {
+                loading.classList.add('is-active');
+            }
+        }, 500);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '0px 0px -50px 0px' });
+            document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+
+            // ヘッダーのスクロール処理
+            const header = document.querySelector('.header');
+            let lastScrollTop = 0;
+
+            window.addEventListener('scroll', () => {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                // トップページ透過ヘッダーの背景色切り替え
+                if (header.classList.contains('header-transparent')) {
+                    if (scrollTop > 50) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                }
+
+                // ヘッダーの表示・非表示
+                if (scrollTop > lastScrollTop && scrollTop > header.offsetHeight) {
+                    header.classList.add('header--hidden');
+                } else {
+                    header.classList.remove('header--hidden');
+                }
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+            });
+
+            // ハンバーガーメニューの開閉
+            const menuToggle = document.querySelector('.menu-toggle');
+            const globalNav = document.querySelector('.global-nav');
+            menuToggle.addEventListener('click', () => {
+                document.body.classList.toggle('menu-open');
+                menuToggle.classList.toggle('is-active');
+                globalNav.classList.toggle('is-active');
+            });
+        });
+    </script>
+</body>
+</html>

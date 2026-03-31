@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>会社概要 | 株式会社ネクストソリューションズ</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ローディング画面 -->
+    <div id="loading" class="loading">
+        <div class="loading-inner">
+            <img src="images/logo.png" alt="Next Solutions" class="loading-logo">
+            <div class="spinner"></div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo"><img src="images/logo.png" alt="Next Solutions"></a>
+            <nav class="global-nav">
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="service.html">事業内容</a></li>
+                    <li><a href="company.html">会社概要</a></li>
+                    <li><a href="index.html#news">お知らせ</a></li>
+                </ul>
+                <a href="contact.html" class="btn-contact-header">お問い合わせ</a>
+            </nav>
+            <button class="menu-toggle">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1 class="page-title fade-in-up">会社概要<span>Company</span></h1>
+        </div>
+    </div>
+
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">ホーム</a></li>
+                <li>&gt;</li>
+                <li>会社概要</li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="philosophy section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title text-center fade-in-up">企業理念<span>Philosophy</span></h2>
+            <div class="philosophy-list">
+                <div class="philosophy-item fade-in-up">
+                    <h3>MISSION</h3>
+                    <h4>「働く」をもっとシンプルに、もっと笑顔に。</h4>
+                    <p>私たちはITの力で複雑な業務を解きほぐし、人々が本来の創造的な仕事に集中できる環境を創り出します。</p>
+                </div>
+                <div class="philosophy-item fade-in-up" style="transition-delay: 0.2s;">
+                    <h3>VISION</h3>
+                    <h4>地域で一番「ありがとう」と言われるIT企業になる。</h4>
+                    <p>最新技術を押し付けるのではなく、常に現場の「人」に寄り添い、地域経済の発展を根底から支える存在を目指します。</p>
+                </div>
+                <div class="philosophy-item fade-in-up" style="transition-delay: 0.4s;">
+                    <h3>VALUE</h3>
+                    <h4>誠実であれ / 現場を知れ / 共に成長せよ</h4>
+                    <p>お客様の課題を自分のこととして捉え、泥臭い現場の理解を怠らず、お互いが成長できるパートナーシップを築きます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="message section-padding">
+        <div class="container">
+            <h2 class="section-title text-center fade-in-up">代表挨拶<span>Message</span></h2>
+            <div class="message-inner fade-in-up">
+                <div class="message-image">
+                    <img src="images/image_5.jpg" alt="代表取締役社長 松本">
+                </div>
+                <div class="message-text">
+                    <h3 class="message-catch">「技術」が主役ではない。<br>人が活きるためのDXを。</h3>
+                    <p>昨今、AIやシステム開発といった「IT技術の導入」ばかりが先行し、現場で働く人々が置いてきぼりになってしまうケースを多く目の当たりにしてきました。</p>
+                    <p>私たちが目指すのは、最新のツールを売りつけることではありません。お客様の業務の泥臭い部分まで深く理解し、「どこをデジタル化すれば、社員の皆様がもっと笑顔で働けるか」を共に考える伴走者でありたいと考えています。</p>
+                    <p>地域経済を支える中小企業の皆様が、変化の激しい時代を力強く生き抜くための「頼れる右腕」として、社員一丸となって尽力してまいります。</p>
+                    <p class="signature">代表取締役社長<br><strong>松本 〇〇</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="company-profile section-padding">
+        <div class="container">
+            <h2 class="section-title text-center fade-in-up">会社概要<span>Profile</span></h2>
+            <table class="profile-table fade-in-up">
+                <tbody>
+                    <tr>
+                        <th>会社名</th>
+                        <td>株式会社ネクストソリューションズ (Next Solutions Inc.)</td>
+                    </tr>
+                    <tr>
+                        <th>設立</th>
+                        <td>2018年4月</td>
+                    </tr>
+                    <tr>
+                        <th>資本金</th>
+                        <td>10,000,000円</td>
+                    </tr>
+                    <tr>
+                        <th>代表者</th>
+                        <td>代表取締役社長 松本 〇〇</td>
+                    </tr>
+                    <tr>
+                        <th>所在地</th>
+                        <td>
+                            〒100-0000<br>
+                            東京都〇〇区〇〇 1-2-3 XXビル 4F<br>
+                            <a href="#" class="map-link">Google Mapで見る</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>事業内容</th>
+                        <td>
+                            ・中小企業向けDXコンサルティング<br>
+                            ・業務システム設計および開発<br>
+                            ・Webサイト制作および運用支援
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="history section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title text-center fade-in-up">沿革<span>History</span></h2>
+            <div class="history-list">
+                <div class="history-item fade-in-up">
+                    <time>2018年 4月</time>
+                    <p>東京都〇〇区にて、株式会社ネクストソリューションズを設立</p>
+                </div>
+                <div class="history-item fade-in-up">
+                    <time>2019年 10月</time>
+                    <p>中小企業向けDX支援サービスを開始</p>
+                </div>
+                <div class="history-item fade-in-up">
+                    <time>2021年 8月</time>
+                    <p>業務拡大に伴い、現住所へオフィスを移転</p>
+                </div>
+                <div class="history-item fade-in-up">
+                    <time>2023年 5月</time>
+                    <p>自社パッケージシステムの提供を開始</p>
+                </div>
+                <div class="history-item fade-in-up">
+                    <time>2026年 3月</time>
+                    <p>「IT導入補助金2026」の支援事業者に採択</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-info">
+                <div class="footer-logo"><img src="images/logo.png" alt="Next Solutions"></div>
+                <p>〒100-0000<br>東京都〇〇区〇〇 1-2-3 XXビル 4F<br>TEL: 03-XXXX-XXXX</p>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="service.html">事業内容</a></li>
+                    <li><a href="company.html">会社概要</a></li>
+                    <li><a href="index.html#news">お知らせ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-copy">
+            <p>&copy; 2026 Next Solutions Inc. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ローディング画面の制御
+        let isLoaded = false;
+        const loading = document.getElementById('loading');
+        
+        window.addEventListener('load', () => {
+            isLoaded = true;
+            if (loading) {
+                loading.classList.remove('is-active');
+                loading.classList.add('is-loaded');
+            }
+        });
+
+        // 読み込みに時間がかかる場合（500ms以上）のみローディング画面を表示
+        setTimeout(() => {
+            if (!isLoaded && loading) {
+                loading.classList.add('is-active');
+            }
+        }, 500);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '0px 0px -50px 0px' });
+            document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+
+            // ヘッダーのスクロール連動表示・非表示
+            let lastScrollTop = 0;
+            const header = document.querySelector('.header');
+            window.addEventListener('scroll', () => {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if (scrollTop > lastScrollTop && scrollTop > header.offsetHeight) {
+                    header.classList.add('header--hidden');
+                } else {
+                    header.classList.remove('header--hidden');
+                }
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+            });
+
+            // ハンバーガーメニューの開閉
+            const menuToggle = document.querySelector('.menu-toggle');
+            const globalNav = document.querySelector('.global-nav');
+            menuToggle.addEventListener('click', () => {
+                document.body.classList.toggle('menu-open');
+                menuToggle.classList.toggle('is-active');
+                globalNav.classList.toggle('is-active');
+            });
+        });
+    </script>
+</body>
+</html>

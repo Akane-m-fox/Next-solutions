@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ | 株式会社ネクストソリューションズ</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ローディング画面 -->
+    <div id="loading" class="loading">
+        <div class="loading-inner">
+            <img src="images/logo.png" alt="Next Solutions" class="loading-logo">
+            <div class="spinner"></div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo"><img src="images/logo.png" alt="Next Solutions"></a>
+            <nav class="global-nav">
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="service.html">事業内容</a></li>
+                    <li><a href="company.html">会社概要</a></li>
+                    <li><a href="index.html#news">お知らせ</a></li>
+                </ul>
+                <a href="contact.html" class="btn-contact-header">お問い合わせ</a>
+            </nav>
+            <button class="menu-toggle">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1 class="page-title fade-in-up">お問い合わせ<span>Contact</span></h1>
+        </div>
+    </div>
+
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">ホーム</a></li>
+                <li>&gt;</li>
+                <li>お問い合わせ</li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="contact-form section-padding">
+        <div class="container">
+            <div class="form-wrapper fade-in-up">
+                <p class="text-center mb-40">システム開発、DX支援、Web制作に関するご相談や<br>お見積もりのご依頼は、以下のフォームよりお気軽にお問い合わせください。</p>
+                
+                <form action="#" method="post">
+                    
+                    <div class="form-group">
+                        <label for="company_name">貴社名</label>
+                        <input type="text" id="company_name" name="company_name" class="form-control" placeholder="例：株式会社ネクストソリューションズ">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">ご担当者名 <span class="asterisk">*</span><span class="required">必須</span></label>
+                        <input type="text" id="name" name="name" class="form-control" required placeholder="例：山田 太郎">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">メールアドレス <span class="asterisk">*</span><span class="required">必須</span></label>
+                        <input type="email" id="email" name="email" class="form-control" required placeholder="例：info@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">電話番号</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="例：03-1234-5678">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="type">お問い合わせ種別</label>
+                        <select id="type" name="type" class="form-control">
+                            <option value="DXコンサルティングについて">DXコンサルティングについて</option>
+                            <option value="システム開発について">システム開発について</option>
+                            <option value="Webサイト制作について">Webサイト制作について</option>
+                            <option value="その他">その他</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">お問い合わせ内容 <span class="asterisk">*</span><span class="required">必須</span></label>
+                        <textarea id="message" name="message" class="form-control" rows="8" required placeholder="ご相談内容や現状の課題などをご自由にご記入ください。"></textarea>
+                    </div>
+
+                    <div class="form-submit text-center mt-40">
+                        <p class="privacy-note">送信ボタンを押すことで、当社の<a href="#">プライバシーポリシー</a>に同意したものとみなします。</p>
+                        <button type="submit" class="btn-primary btn-large">入力内容を送信する</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title text-center fade-in-up">よくあるご質問<span>FAQ</span></h2>
+            <div class="faq-list">
+                <div class="faq-item fade-in-up">
+                    <div class="faq-q">ITに関する知識が全くないのですが、相談しても大丈夫でしょうか？</div>
+                    <div class="faq-a">はい、全く問題ございません。専門用語をできるだけ使わず、わかりやすく丁寧にご説明いたします。現状のお困りごとをそのままお聞かせください。</div>
+                </div>
+                <div class="faq-item fade-in-up" style="transition-delay: 0.1s;">
+                    <div class="faq-q">相談や見積もりに費用はかかりますか？</div>
+                    <div class="faq-a">いいえ、初回のご相談およびお見積もりの作成は「無料」で承っております。まずはお気軽にお問い合わせフォームよりご連絡ください。</div>
+                </div>
+                <div class="faq-item fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="faq-q">東京都以外の地域でも対応可能ですか？</div>
+                    <div class="faq-a">はい、全国対応可能です。オンライン（Zoom等）でのヒアリングやお打ち合わせにて、スムーズにプロジェクトを進める体制を整えております。</div>
+                </div>
+                <div class="faq-item fade-in-up" style="transition-delay: 0.3s;">
+                    <div class="faq-q">導入後のサポート体制はどうなっていますか？</div>
+                    <div class="faq-a">システムやWebサイトは作って終わりではありません。公開・導入後も、保守契約や運用サポートプランをご用意しており、継続的に伴走いたします。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-info">
+                <div class="footer-logo"><img src="images/logo.png" alt="Next Solutions"></div>
+                <p>〒100-0000<br>東京都〇〇区〇〇 1-2-3 XXビル 4F<br>TEL: 03-XXXX-XXXX</p>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="service.html">事業内容</a></li>
+                    <li><a href="company.html">会社概要</a></li>
+                    <li><a href="index.html#news">お知らせ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-copy">
+            <p>&copy; 2026 Next Solutions Inc. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ローディング画面の = false;
+        const loading = document.getElementById('loading');
+        
+        window.addEventListener('load', () => {
+            isLoaded = true;
+                loading.classList.remove('is-active');
+                loading.classList.add('is-loaded');
+            }
+        );
+
+        // 読み込みに時間がかかる場合（500ms以上）のみローディング画面を表示
+        setTimeout(() => {
+            if (!isLoaded && loading) {
+                loading.classList.add('is-active');
+            }
+        }, 500);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '0px 0px -50px 0px' });
+            document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+
+            // ヘッダーのスクロール連動表示・非表示
+            let lastScrollTop = 0;
+            const header = document.querySelector('.header');
+            window.addEventListener('scroll', () => {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if (scrollTop > lastScrollTop && scrollTop > header.offsetHeight) {
+                    header.classList.add('header--hidden');
+                } else {
+                    header.classList.remove('header--hidden');
+                }
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+            });
+
+            // ハンバーガーメニューの開閉
+            const menuToggle = document.querySelector('.menu-toggle');
+            const globalNav = document.querySelector('.global-nav');
+            menuToggle.addEventListener('click', () => {
+                document.body.classList.toggle('menu-open');
+                menuToggle.classList.toggle('is-active');
+                globalNav.classList.toggle('is-active');
+            });
+        });
+    </script>
+</body>
+</html>
