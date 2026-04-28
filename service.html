@@ -7,14 +7,38 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --accent-color: #e67e22; /* ギラつかない落ち着いたオレンジ */
+            --accent-gradient: linear-gradient(135deg, #e67e22, #f39c12);
+            --bg-dark: #2c3e50; /* オレンジに合うダークトーン */
+            --text-main: #333333;
+        }
         .fade-in-up {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transform: translateY(60px) scale(0.95);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .fade-in-up.is-visible {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
+        }
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-60px) scale(0.95);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fade-in-left.is-visible {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+        }
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(60px) scale(0.95);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fade-in-right.is-visible {
+            opacity: 1;
+            transform: translateX(0) scale(1);
         }
 
         /* 大きい画面での左右の余白を調整し、コンテンツ幅を広げる */
@@ -23,6 +47,24 @@
             width: 92% !important;
             margin-left: auto !important;
             margin-right: auto !important;
+        }
+
+        /* ボタンのモダン化 */
+        .btn-primary {
+            background: var(--accent-gradient) !important;
+            border: none !important;
+            color: #fff !important;
+            border-radius: 4px !important;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: bold;
+            box-shadow: 0 10px 20px rgba(230, 126, 34, 0.3);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 25px rgba(230, 126, 34, 0.4);
+            background: linear-gradient(135deg, #d35400, #e67e22) !important;
         }
     </style>
 </head>
@@ -73,54 +115,239 @@
     <section class="service-detail section-padding">
         <div class="container">
             
-            <div class="service-row fade-in-up">
-                <div class="service-row-image">
-                    <img src="images/image_2.jpg" alt="DXコンサルティング">
+            <div class="service-row hover-target fade-in-up">
+                <div class="service-row-image" style="overflow: hidden;">
+                    <img src="images/image_2.jpg" alt="DXコンサルティング" class="img-grayscale">
                 </div>
                 <div class="service-row-text">
                     <span class="service-num">01</span>
                     <h2 class="service-title">DXコンサルティング</h2>
                     <p>「何からデジタル化すればいいかわからない」という段階から伴走します。現状の業務フローを徹底的に洗い出し、無駄な作業を特定。<br>クラウドツールの導入支援から、社内への定着化（マニュアル作成や研修）まで、ITに不慣れな企業様でも確実に効果が出るようトータルでサポートいたします。</p>
-                    <ul class="service-features">
-                        <li>現状業務のヒアリングと課題の可視化</li>
-                        <li>最適なSaaS（クラウドツール）の選定と導入設定</li>
-                        <li>従業員向け操作研修・マニュアル作成</li>
-                    </ul>
+                    <table class="spec-table">
+                        <tbody>
+                            <tr>
+                                <th>Target</th>
+                                <td>DX推進に課題を抱える中小〜中堅企業</td>
+                            </tr>
+                            <tr>
+                                <th>Duration</th>
+                                <td>約3ヶ月〜6ヶ月（定着化支援含む）</td>
+                            </tr>
+                            <tr>
+                                <th>Deliverables</th>
+                                <td>業務フロー図、ツール選定書、操作マニュアル等</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
-            <div class="service-row reverse fade-in-up">
-                <div class="service-row-image">
-                    <img src="images/image_3.jpg" alt="システム開発">
+            <div class="service-row reverse hover-target fade-in-up">
+                <div class="service-row-image" style="overflow: hidden;">
+                    <img src="images/image_3.jpg" alt="システム開発" class="img-grayscale">
                 </div>
                 <div class="service-row-text">
                     <span class="service-num">02</span>
                     <h2 class="service-title">業務システム開発</h2>
                     <p>市販のSaaS（クラウドサービス）ではカバーしきれない、貴社独自の複雑な業務プロセスを最適化するオリジナルシステムを開発します。<br>要件定義から設計、開発、保守運用まで一貫して対応。将来的な事業拡大を見据えた、拡張性の高いセキュアなシステムを提供いたします。</p>
-                    <ul class="service-features">
-                        <li>顧客管理・在庫管理など専用業務システムの構築</li>
-                        <li>既存のレガシーシステムからのリプレイス（移行）</li>
-                        <li>外部サービス（API）との柔軟なシステム連携</li>
-                    </ul>
+                    <table class="spec-table">
+                        <tbody>
+                            <tr>
+                                <th>Tech Stack</th>
+                                <td>AWS, Azure, Python, React, Node.js</td>
+                            </tr>
+                            <tr>
+                                <th>Security</th>
+                                <td>ISO/IEC 27001 (ISMS) 準拠の開発体制</td>
+                            </tr>
+                            <tr>
+                                <th>Maintenance</th>
+                                <td>24時間365日の死活監視・インシデント対応オプション有</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
-            <div class="service-row fade-in-up">
-                <div class="service-row-image">
-                    <img src="images/image_4.jpg" alt="Webサイト制作">
+            <div class="service-row hover-target fade-in-up">
+                <div class="service-row-image" style="overflow: hidden;">
+                    <img src="images/image_4.jpg" alt="Webサイト制作" class="img-grayscale">
                 </div>
                 <div class="service-row-text">
                     <span class="service-num">03</span>
                     <h2 class="service-title">Webサイト制作・運用</h2>
                     <p>企業の顔となるコーポレートサイトや、採用特化のLP（ランディングページ）を制作します。ただ美しいだけでなく、表示速度の最適化やSEO対策を施し、「成果の出るWebサイト」を構築します。<br>公開後の更新作業やアクセス解析など、運用フェーズも継続してご支援可能です。</p>
-                    <ul class="service-features">
-                        <li>企業ブランドを高めるコーポレートサイト制作</li>
-                        <li>求職者に響く採用特化型ランディングページ（LP）制作</li>
-                        <li>保守・運用サポート（SEO対策・アクセス解析）</li>
-                    </ul>
+                    <table class="spec-table">
+                        <tbody>
+                            <tr>
+                                <th>Platform</th>
+                                <td>WordPress, Headless CMS, microCMS</td>
+                            </tr>
+                            <tr>
+                                <th>Features</th>
+                                <td>レスポンシブ対応、SEO最適化、高速表示対応</td>
+                            </tr>
+                            <tr>
+                                <th>Support</th>
+                                <td>月次アクセス解析レポート、コンテンツ更新代行</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
+            <div class="service-row reverse hover-target fade-in-up">
+                <div class="service-row-image" style="overflow: hidden;">
+                    <img src="images/image_3.jpg" alt="クラウドインフラ構築" class="img-grayscale">
+                </div>
+                <div class="service-row-text">
+                    <span class="service-num">04</span>
+                    <h2 class="service-title">クラウドインフラ構築・移行</h2>
+                    <p>物理サーバー（オンプレミス）からの脱却を図るため、AWSやAzureなどのパブリッククラウドへの移行（マイグレーション）を支援します。<br>単なるサーバー移行ではなく、コンテナ技術やサーバーレスアーキテクチャを活用し、トラフィックの増減に柔軟に対応できるスケーラブルで堅牢なインフラ基盤を構築します。</p>
+                    <table class="spec-table">
+                        <tbody>
+                            <tr>
+                                <th>Platform</th>
+                                <td>AWS, Microsoft Azure, Google Cloud</td>
+                            </tr>
+                            <tr>
+                                <th>Architecture</th>
+                                <td>Microservices, Serverless, Containers</td>
+                            </tr>
+                            <tr>
+                                <th>Optimization</th>
+                                <td>コスト最適化（FinOps）、パフォーマンスチューニング</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="service-row hover-target fade-in-up">
+                <div class="service-row-image" style="overflow: hidden;">
+                    <img src="images/image_2.jpg" alt="データ活用・AI導入" class="img-grayscale">
+                </div>
+                <div class="service-row-text">
+                    <span class="service-num">05</span>
+                    <h2 class="service-title">データ活用・AI導入支援</h2>
+                    <p>社内の各システムに点在するデータを統合・可視化し、経営層や現場がデータに基づいた意思決定（データドリブン経営）を行える環境を構築します。<br>また、BIツールの導入だけでなく、機械学習を用いた需要予測モデルの開発や、生成AIを活用した社内ナレッジ検索システムの構築など、最新のAI技術をビジネス価値に直結させます。</p>
+                    <table class="spec-table">
+                        <tbody>
+                            <tr>
+                                <th>Data Stack</th>
+                                <td>Snowflake, BigQuery, Tableau, Looker</td>
+                            </tr>
+                            <tr>
+                                <th>AI/ML</th>
+                                <td>OpenAI API, TensorFlow, PyTorch</td>
+                            </tr>
+                            <tr>
+                                <th>Use Case</th>
+                                <td>需要予測、異常検知、社内FAQチャットボット</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="service-row reverse hover-target fade-in-up">
+                <div class="service-row-image" style="overflow: hidden;">
+                    <img src="images/image_4.jpg" alt="セキュリティ対策" class="img-grayscale">
+                </div>
+                <div class="service-row-text">
+                    <span class="service-num">06</span>
+                    <h2 class="service-title">セキュリティ診断・対策</h2>
+                    <p>急増するサイバー攻撃の脅威から企業の大切な情報資産を守るため、システムの脆弱性診断から対策の実行までをワンストップで提供します。<br>「境界型防御」から「ゼロトラストアーキテクチャ」への移行支援や、ISMS取得に向けた社内ポリシーの策定、従業員向けのリテラシー教育まで、技術面と運用面の両軸で堅牢な体制を構築します。</p>
+                    <table class="spec-table">
+                        <tbody>
+                            <tr>
+                                <th>Assessment</th>
+                                <td>Webアプリケーション脆弱性診断、ペネトレーションテスト</td>
+                            </tr>
+                            <tr>
+                                <th>Zero Trust</th>
+                                <td>IAM（ID/アクセス管理）、EDR、MDM導入</td>
+                            </tr>
+                            <tr>
+                                <th>Consulting</th>
+                                <td>ISMS/Pマーク取得支援、セキュリティポリシー策定</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="engagement section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title text-center fade-in-up">契約・支援モデル<span>Engagement</span></h2>
+            <p class="text-center mb-40 fade-in-up" style="color: var(--color-text-light); font-size: 1.1rem;">プロジェクトの性質や予算に合わせて、柔軟な支援体制をご用意しています。</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; margin-top: 50px;">
+                <div class="fade-in-up" style="background: #fff; border: 1px solid var(--color-border); padding: 50px;">
+                    <span style="display: inline-block; background: var(--color-primary); color: #fff; font-family: var(--font-en); font-weight: 700; padding: 5px 15px; margin-bottom: 20px; font-size: 0.85rem; letter-spacing: 0.05em;">CONTRACT TYPE</span>
+                    <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 20px; color: var(--color-primary);">請負開発モデル</h3>
+                    <p style="font-size: 0.95rem; color: var(--color-text-light); line-height: 1.8; margin-bottom: 30px;">作りたい機能や要件が明確に決まっている場合に適したモデルです。事前にお見積もりとスケジュールを確定させ、完成したシステムを確実にお納めします。</p>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="position: relative; padding-left: 25px; margin-bottom: 15px; font-size: 0.95rem; font-weight: 700;"><span style="position: absolute; left: 0; color: var(--accent-color);">✓</span>予算とスケジュールが固定され見通しが立てやすい</li>
+                        <li style="position: relative; padding-left: 25px; margin-bottom: 15px; font-size: 0.95rem; font-weight: 700;"><span style="position: absolute; left: 0; color: var(--accent-color);">✓</span>社内システムのリプレイスや単発のツール導入に最適</li>
+                    </ul>
+                </div>
+                <div class="fade-in-up" style="background: #fff; border: 1px solid var(--color-border); padding: 50px; transition-delay: 0.2s;">
+                    <span style="display: inline-block; background: var(--accent-color); color: #fff; font-family: var(--font-en); font-weight: 700; padding: 5px 15px; margin-bottom: 20px; font-size: 0.85rem; letter-spacing: 0.05em;">LAB TYPE</span>
+                    <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 20px; color: var(--color-primary);">準委任（ラボ型）モデル</h3>
+                    <p style="font-size: 0.95rem; color: var(--color-text-light); line-height: 1.8; margin-bottom: 30px;">要件が変わりやすい新規事業や、アジャイルにDXを進めたい場合に適したモデルです。毎月一定の開発リソース（エンジニア）を確保し、優先順位の高い機能から柔軟に開発を進めます。</p>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="position: relative; padding-left: 25px; margin-bottom: 15px; font-size: 0.95rem; font-weight: 700;"><span style="position: absolute; left: 0; color: var(--accent-color);">✓</span>仕様変更や追加機能に即座に対応可能</li>
+                        <li style="position: relative; padding-left: 25px; margin-bottom: 15px; font-size: 0.95rem; font-weight: 700;"><span style="position: absolute; left: 0; color: var(--accent-color);">✓</span>貴社専用の開発チームとしてノウハウを蓄積</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="methodology section-padding" style="background-color: var(--bg-dark);">
+        <div class="container">
+            <h2 class="section-title text-center fade-in-up" style="color: #fff;">開発アプローチ<span style="color: rgba(255,255,255,0.04);">Methodology</span></h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 60px;">
+                <div class="fade-in-up" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 40px;">
+                    <span style="color: var(--accent-color); font-family: var(--font-en); font-size: 2.5rem; font-weight: 900; line-height: 1;">01</span>
+                    <h3 style="color: #fff; margin: 20px 0 15px; font-size: 1.2rem;">アジャイル開発</h3>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.8;">要件の変化に柔軟に対応するため、短いサイクルで開発・テスト・リリースを繰り返すアジャイル手法を採用。常に最新のビジネスニーズに合致したシステムを提供します。</p>
+                </div>
+                <div class="fade-in-up" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 40px; transition-delay: 0.2s;">
+                    <span style="color: var(--accent-color); font-family: var(--font-en); font-size: 2.5rem; font-weight: 900; line-height: 1;">02</span>
+                    <h3 style="color: #fff; margin: 20px 0 15px; font-size: 1.2rem;">DevOps & CI/CD</h3>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.8;">継続的インテグレーション/デリバリー(CI/CD)パイプラインを構築し、高品質なコードを迅速かつ安全に本番環境へデプロイ。運用の自動化によりダウンタイムを最小化します。</p>
+                </div>
+                <div class="fade-in-up" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 40px; transition-delay: 0.4s;">
+                    <span style="color: var(--accent-color); font-family: var(--font-en); font-size: 2.5rem; font-weight: 900; line-height: 1;">03</span>
+                    <h3 style="color: #fff; margin: 20px 0 15px; font-size: 1.2rem;">セキュリティ・バイ・デザイン</h3>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.8;">設計段階からセキュリティ要件を組み込み、脆弱性を排除。エンタープライズ企業が求める厳格なコンプライアンス基準に準拠したセキュアな基盤を構築します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="maintenance section-padding">
+        <div class="container">
+            <h2 class="section-title text-center fade-in-up">保守・運用サポート<span>Maintenance</span></h2>
+            <p class="text-center mb-40 fade-in-up" style="color: var(--color-text-light); font-size: 1.1rem;">システムは「作って終わり」ではなく「使いこなしてこそ」価値を生みます。</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 50px;">
+                <div class="fade-in-up" style="border-top: 4px solid var(--accent-color); padding: 30px; background: #fff; border-left: 1px solid var(--color-border); border-right: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+                    <h3 style="color: var(--color-primary); font-size: 1.3rem; margin-bottom: 15px; font-weight: 700;">障害検知・復旧対応 (SRE)</h3>
+                    <p style="color: var(--color-text-light); font-size: 0.95rem; line-height: 1.8;">24時間365日のシステム監視体制を構築。万が一の障害発生時も、迅速な検知と復旧作業を行い、ビジネスへの影響を最小限に抑えます。</p>
+                </div>
+                <div class="fade-in-up" style="border-top: 4px solid var(--accent-color); padding: 30px; background: #fff; border-left: 1px solid var(--color-border); border-right: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); transition-delay: 0.2s;">
+                    <h3 style="color: var(--color-primary); font-size: 1.3rem; margin-bottom: 15px; font-weight: 700;">セキュリティアップデート</h3>
+                    <p style="color: var(--color-text-light); font-size: 0.95rem; line-height: 1.8;">OSやミドルウェアの定期的なパッチ適用、脆弱性診断を実施。常に最新のセキュリティ基準を満たした安全なシステム環境を維持します。</p>
+                </div>
+                <div class="fade-in-up" style="border-top: 4px solid var(--accent-color); padding: 30px; background: #fff; border-left: 1px solid var(--color-border); border-right: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); transition-delay: 0.4s;">
+                    <h3 style="color: var(--color-primary); font-size: 1.3rem; margin-bottom: 15px; font-weight: 700;">定着化・オンボーディング</h3>
+                    <p style="color: var(--color-text-light); font-size: 0.95rem; line-height: 1.8;">導入したシステムを現場の従業員がスムーズに使えるよう、操作マニュアルの作成や説明会の実施、ヘルプデスク対応などを包括的に支援します。</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -147,6 +374,26 @@
                     <span class="flow-num">04</span>
                     <h3>運用・サポート</h3>
                     <p>導入後も、定着化支援や保守運用を継続してサポートします。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-faq section-padding">
+        <div class="container">
+            <h2 class="section-title text-center fade-in-up">よくあるご質問<span>FAQ</span></h2>
+            <div style="max-width: 800px; margin: 50px auto 0;">
+                <div class="fade-in-up" style="border-bottom: 1px solid var(--color-border); padding-bottom: 30px; margin-bottom: 30px;">
+                    <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--color-primary); margin-bottom: 15px; display: flex; align-items: flex-start;"><span style="color: var(--accent-color); font-family: var(--font-en); font-size: 1.4rem; margin-right: 15px; line-height: 1;">Q.</span> 開発にかかる期間の目安はどのくらいですか？</h3>
+                    <p style="font-size: 0.95rem; color: var(--color-text-light); line-height: 1.8; padding-left: 35px;">プロジェクトの規模により異なりますが、小規模なツール導入で1〜2ヶ月、中規模な業務システムのフルスクラッチ開発で3〜6ヶ月程度が目安となります。無料相談の段階で大まかなスケジュールをご提示します。</p>
+                </div>
+                <div class="fade-in-up" style="border-bottom: 1px solid var(--color-border); padding-bottom: 30px; margin-bottom: 30px;">
+                    <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--color-primary); margin-bottom: 15px; display: flex; align-items: flex-start;"><span style="color: var(--accent-color); font-family: var(--font-en); font-size: 1.4rem; margin-right: 15px; line-height: 1;">Q.</span> 他社が開発した既存システムの引き継ぎ・改修は可能ですか？</h3>
+                    <p style="font-size: 0.95rem; color: var(--color-text-light); line-height: 1.8; padding-left: 35px;">はい、対応可能です。ただし、システムのソースコードや設計書の現状を調査させていただく必要があります（調査費用が発生する場合があります）。調査の結果、リプレイス（作り直し）の方がコストメリットが高い場合は、そちらをご提案することもあります。</p>
+                </div>
+                <div class="fade-in-up" style="border-bottom: 1px solid var(--color-border); padding-bottom: 30px; margin-bottom: 30px;">
+                    <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--color-primary); margin-bottom: 15px; display: flex; align-items: flex-start;"><span style="color: var(--accent-color); font-family: var(--font-en); font-size: 1.4rem; margin-right: 15px; line-height: 1;">Q.</span> システム開発の知識がないため、要件がまとまっていなくても相談できますか？</h3>
+                    <p style="font-size: 0.95rem; color: var(--color-text-light); line-height: 1.8; padding-left: 35px;">全く問題ございません。当社は要件定義の前段階である「業務課題の洗い出し」から伴走するDXコンサルティングを得意としています。現状のお困りごとをそのままお話しいただければ、最適な解決策をご提案いたします。</p>
                 </div>
             </div>
         </div>
@@ -208,13 +455,20 @@
                     }
                 });
             }, { rootMargin: '0px 0px -50px 0px' });
-            document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+            document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right').forEach(el => observer.observe(el));
 
             // ヘッダーのスクロール連動表示・非表示
             let lastScrollTop = 0;
             const header = document.querySelector('.header');
             window.addEventListener('scroll', () => {
                 let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                if (scrollTop > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+
                 if (scrollTop > lastScrollTop && scrollTop > header.offsetHeight) {
                     header.classList.add('header--hidden');
                 } else {

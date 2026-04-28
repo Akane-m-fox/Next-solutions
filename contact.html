@@ -7,14 +7,38 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --accent-color: #e67e22; /* ギラつかない落ち着いたオレンジ */
+            --accent-gradient: linear-gradient(135deg, #e67e22, #f39c12);
+            --bg-dark: #2c3e50; /* オレンジに合うダークトーン */
+            --text-main: #333333;
+        }
         .fade-in-up {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transform: translateY(40px) scale(0.98);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .fade-in-up.is-visible {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
+        }
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-40px) scale(0.98);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fade-in-left.is-visible {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+        }
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(40px) scale(0.98);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fade-in-right.is-visible {
+            opacity: 1;
+            transform: translateX(0) scale(1);
         }
 
         /* 大きい画面での左右の余白を調整し、コンテンツ幅を広げる */
@@ -23,6 +47,24 @@
             width: 92% !important;
             margin-left: auto !important;
             margin-right: auto !important;
+        }
+
+        /* ボタンのモダン化 */
+        .btn-primary {
+            background: var(--accent-gradient) !important;
+            border: none !important;
+            color: #fff !important;
+            border-radius: 4px !important;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: bold;
+            box-shadow: 0 10px 20px rgba(230, 126, 34, 0.3);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 25px rgba(230, 126, 34, 0.4);
+            background: linear-gradient(135deg, #d35400, #e67e22) !important;
         }
     </style>
 </head>
@@ -72,52 +114,62 @@
 
     <section class="contact-form section-padding">
         <div class="container">
-            <div class="form-wrapper fade-in-up">
-                <p class="text-center mb-40">システム開発、DX支援、Web制作に関するご相談や<br>お見積もりのご依頼は、以下のフォームよりお気軽にお問い合わせください。</p>
+            <div class="contact-grid" style="display: grid; grid-template-columns: 1fr 2fr; gap: 60px;">
                 
-                <form action="#" method="post">
+                <div class="contact-info fade-in-up">
+                    <h3 style="font-family: var(--font-en); font-size: 1.5rem; margin-bottom: 20px; color: var(--color-primary);">SUPPORT INFO</h3>
+                    <p style="margin-bottom: 30px; font-size: 0.95rem; color: var(--color-text-light);">お急ぎの場合は、お電話でも承っております。専任のコンサルタントが対応いたします。</p>
                     
-                    <div class="form-group">
-                        <label for="company_name">貴社名</label>
-                        <input type="text" id="company_name" name="company_name" class="form-control" placeholder="例：株式会社ネクストソリューションズ">
+                    <div style="margin-bottom: 30px;">
+                        <h4 style="font-size: 0.9rem; color: var(--color-text-light); margin-bottom: 5px;">お電話でのお問い合わせ</h4>
+                        <p style="font-family: var(--font-en); font-size: 1.8rem; font-weight: 700; color: var(--color-primary);">03-XXXX-XXXX</p>
+                        <p style="font-size: 0.85rem; color: var(--color-text-light);">受付時間：平日 9:00 - 18:00（土日祝休）</p>
                     </div>
 
-                    <div class="form-group">
-                        <label for="name">ご担当者名 <span class="asterisk">*</span><span class="required">必須</span></label>
-                        <input type="text" id="name" name="name" class="form-control" required placeholder="例：山田 太郎">
+                    <div style="border-top: 1px solid var(--color-border); padding-top: 30px;">
+                        <h4 style="font-size: 0.9rem; color: var(--color-text-light); margin-bottom: 15px;">本社所在地</h4>
+                        <p style="font-size: 0.9rem; line-height: 1.6;">〒100-0000<br>東京都〇〇区〇〇 1-2-3 XXビル 4F</p>
                     </div>
+                </div>
 
-                    <div class="form-group">
-                        <label for="email">メールアドレス <span class="asterisk">*</span><span class="required">必須</span></label>
-                        <input type="email" id="email" name="email" class="form-control" required placeholder="例：info@example.com">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="phone">電話番号</label>
-                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="例：03-1234-5678">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="type">お問い合わせ種別</label>
-                        <select id="type" name="type" class="form-control">
-                            <option value="DXコンサルティングについて">DXコンサルティングについて</option>
-                            <option value="システム開発について">システム開発について</option>
-                            <option value="Webサイト制作について">Webサイト制作について</option>
-                            <option value="その他">その他</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">お問い合わせ内容 <span class="asterisk">*</span><span class="required">必須</span></label>
-                        <textarea id="message" name="message" class="form-control" rows="8" required placeholder="ご相談内容や現状の課題などをご自由にご記入ください。"></textarea>
-                    </div>
-
-                    <div class="form-submit text-center mt-40">
-                        <p class="privacy-note">送信ボタンを押すことで、当社の<a href="#">プライバシーポリシー</a>に同意したものとみなします。</p>
-                        <button type="submit" class="btn-primary btn-large">入力内容を送信する</button>
-                    </div>
-
-                </form>
+                <div class="form-wrapper fade-in-up" style="margin: 0; max-width: 100%;">
+                    <p class="mb-40">システム開発、DX支援、Web制作に関するご相談や<br>お見積もりのご依頼は、以下のフォームよりお気軽にお問い合わせください。</p>
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <label for="company_name">貴社名</label>
+                            <input type="text" id="company_name" name="company_name" class="form-control" placeholder="例：株式会社ネクストソリューションズ">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">ご担当者名 <span class="asterisk">*</span><span class="required">必須</span></label>
+                            <input type="text" id="name" name="name" class="form-control" required placeholder="例：山田 太郎">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">メールアドレス <span class="asterisk">*</span><span class="required">必須</span></label>
+                            <input type="email" id="email" name="email" class="form-control" required placeholder="例：info@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">電話番号</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="例：03-1234-5678">
+                        </div>
+                        <div class="form-group">
+                            <label for="type">お問い合わせ種別</label>
+                            <select id="type" name="type" class="form-control">
+                                <option value="DXコンサルティングについて">DXコンサルティングについて</option>
+                                <option value="システム開発について">システム開発について</option>
+                                <option value="Webサイト制作について">Webサイト制作について</option>
+                                <option value="その他">その他</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">お問い合わせ内容 <span class="asterisk">*</span><span class="required">必須</span></label>
+                            <textarea id="message" name="message" class="form-control" rows="8" required placeholder="ご相談内容や現状の課題などをご自由にご記入ください。"></textarea>
+                        </div>
+                        <div class="form-submit text-center mt-40">
+                            <p class="privacy-note">送信ボタンを押すことで、当社の<a href="#">プライバシーポリシー</a>に同意したものとみなします。</p>
+                            <button type="submit" class="btn-primary btn-large" style="width: 100%;">入力内容を送信する</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -167,15 +219,17 @@
     </footer>
 
     <script>
-        // ローディング画面の = false;
+        // ローディング画面の制御
+        let isLoaded = false;
         const loading = document.getElementById('loading');
         
         window.addEventListener('load', () => {
             isLoaded = true;
+            if (loading) {
                 loading.classList.remove('is-active');
                 loading.classList.add('is-loaded');
             }
-        );
+        });
 
         // 読み込みに時間がかかる場合（500ms以上）のみローディング画面を表示
         setTimeout(() => {
@@ -193,13 +247,20 @@
                     }
                 });
             }, { rootMargin: '0px 0px -50px 0px' });
-            document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+            document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right').forEach(el => observer.observe(el));
 
             // ヘッダーのスクロール連動表示・非表示
             let lastScrollTop = 0;
             const header = document.querySelector('.header');
             window.addEventListener('scroll', () => {
                 let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                if (scrollTop > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+
                 if (scrollTop > lastScrollTop && scrollTop > header.offsetHeight) {
                     header.classList.add('header--hidden');
                 } else {

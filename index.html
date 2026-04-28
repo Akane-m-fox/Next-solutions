@@ -5,35 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>株式会社ネクストソリューションズ | 地域密着型DX・ITコンサルティング</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
     <style>
-        .   color: #fff;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-        }
-        .header-transparent .btn-contact-header {
-            color: #fff;
-            border-color: #fff;
-        }
-        .header-transparent .menu-toggle span {
-            background-color: #fff;
-        }
-        .header-transparent.scrolled {
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-        .header-transparent.scrolled .global-nav ul li a {
-            color: #333;
-            text-shadow: none;
-        }
-        .header-transparent.scrolled .btn-contact-header {
-            color: #007bff; /* style.cssでの定義を想定 */
-            border-color: #007bff; /* style.cssでの定義を想定 */
-        }
-        .header-transparent.scrolled .menu-toggle span {
-            background-color: #333;
-        }
         /* FVを画面最上部から表示し、高さをビューポートに合わせる */
         .fv {
             margin-top: 0;
@@ -84,6 +57,193 @@
             margin-left: auto !important;
             margin-right: auto !important;
         }
+
+        /* --- モダンテック・SaaS風デザインの上書き --- */
+        :root {
+            --accent-color: #FF5A00; /* インダストリアル・オレンジ */
+            --bg-dark: #0B131F; /* ディープ・ネイビー */
+            --text-main: #111111;
+            --font-en: 'Oswald', sans-serif;
+        }
+
+        /* アニメーションのモダン化（少しスケールをかけて滑らかに） */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(60px) scale(0.95);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fade-in-up.is-visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        body {
+            color: var(--text-main);
+            letter-spacing: 0.05em;
+        }
+
+        /* FVの全画面・超巨大タイポグラフィ化 */
+        .fv {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 0;
+        }
+        .fv-bg::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(11,19,31,0.8) 0%, rgba(11,19,31,0.6) 100%);
+        }
+        .fv-content {
+            align-items: center !important;
+            text-align: center;
+            padding-top: 0 !important;
+            z-index: 2;
+            width: 100%;
+        }
+        .fv-catch {
+            font-size: 9vw !important; /* ビューポート幅に合わせた巨大フォント */
+            letter-spacing: -0.03em;
+            line-height: 0.9 !important;
+            text-transform: uppercase;
+            font-weight: 900;
+            color: #fff;
+            text-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            margin-bottom: 20px;
+            font-family: var(--font-en);
+        }
+        .fv-catch span {
+            color: var(--accent-color);
+            display: block;
+        }
+        .fv-sub {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            margin-top: 30px;
+            color: rgba(255,255,255,0.9);
+            font-family: var(--font-en);
+        }
+
+        /* 数字のアクセントカラー化 */
+        .number-value, .flow-num {
+            color: var(--accent-color) !important;
+        }
+        .flow-item::before {
+            background: var(--accent-color) !important; /* 線の色 */
+        }
+
+        /* スマートフォン向け表示の調整 */
+        @media (max-width: 768px) {
+            .fv-catch {
+                font-size: 14vw !important;
+            }
+        }
+
+        /* カード・要素のシャープ化 */
+        .service-card, .feature-item, .case-card, .security-item {
+            border-radius: 0 !important; /* 直角にしてエッジを効かせる */
+            box-shadow: none !important;
+            border: 1px solid rgba(0,0,0,0.05) !important;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s;
+            background: #fff;
+        }
+        .service-card:hover, .feature-item:hover, .case-card:hover, .security-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.08) !important;
+            border-color: var(--accent-color) !important;
+        }
+
+        /* ボタンのモダン化 */
+        .btn-primary {
+            background: var(--accent-color) !important;
+            border-radius: 0 !important; /* 完全な直角 */
+            font-family: var(--font-en) !important;
+            box-shadow: none !important;
+            border: none !important;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            color: #fff !important;
+            transition: color 0.4s ease !important;
+        }
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 100%; height: 100%;
+            background: var(--bg-dark);
+            transition: left 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            z-index: -1;
+            transform: skewX(-15deg);
+            transform-origin: bottom left;
+        }
+        .btn-primary:hover::before {
+            left: 0;
+            transform: skewX(0);
+        }
+        
+        /* 導入実績ロゴのホバーエフェクト */
+        .trusted-logos span {
+            filter: grayscale(100%);
+            opacity: 0.3 !important;
+            transition: opacity 0.4s, filter 0.4s;
+        }
+        .trusted-logos span:hover {
+            filter: grayscale(0%);
+            opacity: 1 !important;
+        }
+
+        .service-tags span {
+            font-size: 0.7rem;
+            padding: 4px 8px;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            font-family: var(--font-en);
+            letter-spacing: 0.05em;
+        }
+        /* Serviceの大胆なダークモード＋グラスモーフィズム化 */
+        .bg-dark {
+            background-color: var(--bg-dark) !important;
+            color: #fff !important;
+        }
+        .bg-dark .section-title { color: #fff; }
+        .bg-dark .section-title span { color: rgba(255,255,255,0.03) !important; }
+        .bg-dark .service-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1) !important;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .bg-dark .service-card h3 { color: #fff; }
+        .bg-dark .service-card p { color: rgba(255,255,255,0.7); }
+        .bg-dark .service-card:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: var(--accent-color) !important;
+            box-shadow: 0 20px 40px rgba(230, 126, 34, 0.2) !important;
+        }
+        /* ダーク背景用のリンク上書き */
+        .bg-dark .link-arrow {
+            color: #fff;
+        }
+        .bg-dark .link-arrow::after { background-color: #fff; }
+        .bg-dark .link-arrow::before { border-color: #fff; }
+        .bg-dark .link-arrow:hover { color: var(--accent-color); }
+        .bg-dark .link-arrow:hover::after { background-color: var(--accent-color); }
+        .bg-dark .link-arrow:hover::before { border-color: var(--accent-color); }
+        .industry-item:hover {
+            background: var(--accent-color) !important;
+            border-color: var(--accent-color) !important;
+        }
+
+        /* Numbersの超巨大化 */
+        .number-value {
+            font-size: 15vw !important; /* 画面幅に応じた超巨大数字 */
+            line-height: 0.8;
+        }
     </style>
 </head>
 <body>
@@ -96,7 +256,7 @@
         </div>
     </div>
 
-    <header class="header header-transparent">
+    <header class="header">
         <div class="container header-inner">
             <a href="index.html" class="logo"><img src="images/logo.png" alt="Next Solutions"></a>
             <nav class="global-nav">
@@ -119,24 +279,114 @@
             <video src="images/fv-bg.mp4" autoplay loop muted playsinline></video>
         </div>
         <div class="container fv-content">
-            <h1 class="fv-catch fade-in-up">中小企業のDXを、<br>地域密着で支援します。</h1>
-            <p class="fv-sub fade-in-up" style="transition-delay: 0.2s;">創業からの信頼と、最新のIT技術。<br>私たちは、中小企業の課題に寄り添うDX推進パートナーです。</p>
-            <p class="fade-in-up" style="transition-delay: 0.4s;">
-            ネクストソリューションズは、地域の中小企業に特化したDX・ITコンサルティングを提供しています。現場主義でお客様のビジネス成長を支援します。</p>
+            <h1 class="fv-catch fade-in-up">TRANSFORM<br><span>YOUR BUSINESS</span></h1>
+            <p class="fv-sub fade-in-up" style="transition-delay: 0.2s;">デジタルの力で、ビジネスを次のステージへ。</p>
+            <p class="fade-in-up" style="transition-delay: 0.4s; color: rgba(255,255,255,0.7); max-width: 600px; margin-top: 20px; line-height: 1.8; margin-left: auto; margin-right: auto;">
+            最先端のITソリューションと徹底した現場理解により、<br>持続可能な成長を牽引するデジタルトランスフォーメーションを実現します。</p>
+            <div class="fade-in-up" style="transition-delay: 0.6s; margin-top: 50px;">
+                <a href="contact.html" class="btn-primary" style="padding: 20px 60px; font-size: 1.2rem; border-radius: 0; box-shadow: 0 15px 30px rgba(230,126,34,0.4);">無料相談を予約する</a>
+            </div>
         </div>
     </section>
 
-    <section class="company section-padding">
-        <div class="container company-inner">
-            <div class="company-image fade-in-up">
-                <img src="images/image_5.jpg" alt="私たちについて">
+    <section class="trusted-by section-padding" style="padding-top: 40px; padding-bottom: 40px;">
+        <div class="container text-center fade-in-up">
+            <h2 class="section-title" style="font-size: 1.2rem; margin-bottom: 20px; color: #666; font-weight: normal;">導入実績・パートナー企業</h2>
+            <div class="trusted-logos" style="display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap; opacity: 0.5;">
+                <span style="font-size: 1.5rem; font-weight: bold; font-family: serif;">Company A</span>
+                <span style="font-size: 1.5rem; font-weight: bold; font-family: sans-serif;">GLOBAL INC.</span>
+                <span style="font-size: 1.5rem; font-weight: bold; letter-spacing: 2px;">TECH CORP</span>
+                <span style="font-size: 1.5rem; font-weight: bold; font-style: italic;">Future Ltd.</span>
+                <span style="font-size: 1.5rem; font-weight: bold;">INNOVATION</span>
             </div>
-            <div class="company-text fade-in-up" style="transition-delay: 0.2s;">
-                <h2 class="section-title">私たちについて<span>About Us</span></h2>
-                <h3 class="company-catch">地域企業の「頼れる右腕」として、<br>ビジネスの成長を支援します。</h3>
-                <p>株式会社ネクストソリューションズは、地域に密着したBtoB向けのDX・ITコンサルティング企業です。<br>最新のテクノロジーを活用しながらも、常に「現場で働く人」を中心に据えた提案を行い、お客様の持続的な成長を共に実現していくパートナーを目指しています。</p>
-                <div class="mt-40">
-                    <a href="company.html" class="btn-outline">会社概要・代表挨拶を見る</a>
+        </div>
+    </section>
+
+    <section class="service section-padding bg-dark">
+        <div class="container">
+            <h2 class="section-title text-center fade-in-up">事業内容<span>Service</span></h2>
+            <p class="text-center mb-40 fade-in-up" style="color: rgba(255,255,255,0.7);">お客様の課題に合わせて、3つの領域から最適なITソリューションを提供します。</p>
+            <div class="service-grid">
+                <a href="service.html" class="service-card hover-target fade-in-up" style="display: block; text-decoration: none;">
+                    <div class="service-icon"><img src="images/image_2.jpg" alt="DXコンサルティング"></div>
+                    <h3>DXコンサルティング</h3>
+                    <p>業務フローの見直しからITツールの導入・定着まで、伴走型でサポートいたします。</p>
+                    <div class="service-tags" style="margin-top: 20px; display: flex; gap: 8px; flex-wrap: wrap;">
+                        <span>STRATEGY</span>
+                        <span>CLOUD</span>
+                    </div>
+                </a>
+                <a href="service.html" class="service-card hover-target fade-in-up" style="transition-delay: 0.2s; display: block; text-decoration: none;">
+                    <div class="service-icon"><img src="images/image_3.jpg" alt="システム開発"></div>
+                    <h3>システム開発</h3>
+                    <p>貴社独自の業務プロセスに最適化された、無駄のないオリジナルシステムを構築します。</p>
+                    <div class="service-tags" style="margin-top: 20px; display: flex; gap: 8px; flex-wrap: wrap;">
+                        <span>AWS</span>
+                        <span>React</span>
+                    </div>
+                </a>
+                <a href="service.html" class="service-card hover-target fade-in-up" style="transition-delay: 0.4s; display: block; text-decoration: none;">
+                    <div class="service-icon"><img src="images/image_4.jpg" alt="Webサイト制作"></div>
+                    <h3>Webサイト制作</h3>
+                    <p>企業の顔となるコーポレートサイトを、成果につながるデザインと設計で制作します。</p>
+                    <div class="service-tags" style="margin-top: 20px; display: flex; gap: 8px; flex-wrap: wrap;">
+                        <span>CMS</span>
+                        <span>SEO</span>
+                    </div>
+                </a>
+                <a href="service.html" class="service-card hover-target fade-in-up" style="display: block; text-decoration: none;">
+                    <div class="service-icon"><img src="images/image_3.jpg" alt="クラウドインフラ構築"></div>
+                    <h3>クラウドインフラ構築</h3>
+                    <p>オンプレミスからクラウドへの移行、スケーラブルなインフラ基盤の設計・構築を支援します。</p>
+                    <div class="service-tags" style="margin-top: 20px; display: flex; gap: 8px; flex-wrap: wrap;">
+                        <span>AWS</span>
+                        <span>INFRA</span>
+                    </div>
+                </a>
+                <a href="service.html" class="service-card hover-target fade-in-up" style="transition-delay: 0.2s; display: block; text-decoration: none;">
+                    <div class="service-icon"><img src="images/image_2.jpg" alt="データ活用・AI導入"></div>
+                    <h3>データ活用・AI導入</h3>
+                    <p>社内データの統合・可視化、機械学習や生成AIを用いた業務自動化・高度化を実現します。</p>
+                    <div class="service-tags" style="margin-top: 20px; display: flex; gap: 8px; flex-wrap: wrap;">
+                        <span>DATA</span>
+                        <span>AI/ML</span>
+                    </div>
+                </a>
+                <a href="service.html" class="service-card hover-target fade-in-up" style="transition-delay: 0.4s; display: block; text-decoration: none;">
+                    <div class="service-icon"><img src="images/image_4.jpg" alt="セキュリティ対策"></div>
+                    <h3>セキュリティ対策</h3>
+                    <p>脆弱性診断からゼロトラストの導入、セキュリティガイドラインの策定まで包括的に防御します。</p>
+                    <div class="service-tags" style="margin-top: 20px; display: flex; gap: 8px; flex-wrap: wrap;">
+                        <span>SECURITY</span>
+                        <span>ZERO TRUST</span>
+                    </div>
+                </a>
+            </div>
+            <div class="text-center mt-40">
+                <a href="service.html" class="link-arrow">VIEW ALL SERVICES</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="industries section-padding bg-dark" style="border-top: 1px solid rgba(255,255,255,0.05);">
+        <div class="container">
+            <h2 class="section-title text-center fade-in-up">対応業界<span>Industries</span></h2>
+            <div class="industries-grid fade-in-up" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 40px;">
+                <div style="border: 1px solid rgba(255,255,255,0.1); padding: 40px 20px; text-align: center; transition: all 0.3s ease; background: rgba(255,255,255,0.02);" class="industry-item hover-target">
+                    <h3 style="font-family: var(--font-en); font-size: 1.4rem; color: #fff; margin-bottom: 10px; letter-spacing: 0.05em;">MANUFACTURING</h3>
+                    <p style="font-size: 0.85rem; color: rgba(255,255,255,0.6);">製造・メーカー</p>
+                </div>
+                <div style="border: 1px solid rgba(255,255,255,0.1); padding: 40px 20px; text-align: center; transition: all 0.3s ease; background: rgba(255,255,255,0.02);" class="industry-item hover-target" style="transition-delay: 0.1s;">
+                    <h3 style="font-family: var(--font-en); font-size: 1.4rem; color: #fff; margin-bottom: 10px; letter-spacing: 0.05em;">LOGISTICS</h3>
+                    <p style="font-size: 0.85rem; color: rgba(255,255,255,0.6);">物流・運輸</p>
+                </div>
+                <div style="border: 1px solid rgba(255,255,255,0.1); padding: 40px 20px; text-align: center; transition: all 0.3s ease; background: rgba(255,255,255,0.02);" class="industry-item hover-target" style="transition-delay: 0.2s;">
+                    <h3 style="font-family: var(--font-en); font-size: 1.4rem; color: #fff; margin-bottom: 10px; letter-spacing: 0.05em;">RETAIL</h3>
+                    <p style="font-size: 0.85rem; color: rgba(255,255,255,0.6);">小売・卸売</p>
+                </div>
+                <div style="border: 1px solid rgba(255,255,255,0.1); padding: 40px 20px; text-align: center; transition: all 0.3s ease; background: rgba(255,255,255,0.02);" class="industry-item hover-target" style="transition-delay: 0.3s;">
+                    <h3 style="font-family: var(--font-en); font-size: 1.4rem; color: #fff; margin-bottom: 10px; letter-spacing: 0.05em;">FINANCE</h3>
+                    <p style="font-size: 0.85rem; color: rgba(255,255,255,0.6);">金融・保険</p>
                 </div>
             </div>
         </div>
@@ -165,7 +415,7 @@
         </div>
     </section>
 
-    <section class="numbers section-padding" style="background-color: #F8F9FA;">
+    <section class="numbers section-padding bg-light">
         <div class="container">
             <h2 class="section-title text-center fade-in-up">数字で見るNext Solutions<span>By the Numbers</span></h2>
             <div class="numbers-grid">
@@ -185,61 +435,172 @@
         </div>
     </section>
 
-    <section class="service section-padding bg-light">
-        <div class="container">
-            <h2 class="section-title text-center fade-in-up">事業内容<span>Service</span></h2>
-            <p class="text-center mb-40 fade-in-up">お客様の課題に合わせて、3つの領域から最適なITソリューションを提供します。</p>
-            <div class="service-grid">
-                <div class="service-card fade-in-up">
-                    <div class="service-icon"><img src="images/image_2.jpg" alt="DXコンサルティング"></div>
-                    <h3>DXコンサルティング</h3>
-                    <p>業務フローの見直しからITツールの導入・定着まで、伴走型でサポートいたします。</p>
-                </div>
-                <div class="service-card fade-in-up" style="transition-delay: 0.2s;">
-                    <div class="service-icon"><img src="images/image_3.jpg" alt="システム開発"></div>
-                    <h3>システム開発</h3>
-                    <p>貴社独自の業務プロセスに最適化された、無駄のないオリジナルシステムを構築します。</p>
-                </div>
-                <div class="service-card fade-in-up" style="transition-delay: 0.4s;">
-                    <div class="service-icon"><img src="images/image_4.jpg" alt="Webサイト制作"></div>
-                    <h3>Webサイト制作</h3>
-                    <p>企業の顔となるコーポレートサイトを、成果につながるデザインと設計で制作します。</p>
-                </div>
-            </div>
-            <div class="text-center mt-40">
-                <a href="service.html" class="btn-primary">事業内容の詳細を見る</a>
-            </div>
-        </div>
-    </section>
-
     <section class="case-study section-padding">
         <div class="container">
             <h2 class="section-title fade-in-up">導入事例<span>Case Study</span></h2>
             <div class="case-grid">
-                <a href="#" class="case-card fade-in-up">
-                    <div class="case-image"><img src="images/image_2.jpg" alt="事例1"></div>
+                <a href="#" class="case-card hover-target fade-in-up">
+                    <div class="case-image"><img src="images/image_2.jpg" alt="事例1" class="img-grayscale"></div>
                     <div class="case-content">
                         <span class="case-category">製造業</span>
                         <h3 class="case-title">紙の図面管理をクラウド化し、確認作業の時間を月間40時間削減</h3>
                         <p class="case-client">株式会社〇〇製作所 様</p>
                     </div>
                 </a>
-                <a href="#" class="case-card fade-in-up" style="transition-delay: 0.2s;">
-                    <div class="case-image"><img src="images/image_3.jpg" alt="事例2"></div>
+                <a href="#" class="case-card hover-target fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="case-image"><img src="images/image_3.jpg" alt="事例2" class="img-grayscale"></div>
                     <div class="case-content">
                         <span class="case-category">小売業</span>
                         <h3 class="case-title">複数店舗の在庫管理を統合する独自システムを開発、欠品率を大幅に改善</h3>
                         <p class="case-client">〇〇リテール株式会社 様</p>
                     </div>
                 </a>
+                <a href="#" class="case-card hover-target fade-in-up" style="transition-delay: 0.4s;">
+                    <div class="case-image"><img src="images/image_4.jpg" alt="事例3" class="img-grayscale"></div>
+                    <div class="case-content">
+                        <span class="case-category">サービス業</span>
+                        <h3 class="case-title">予約管理と顧客対応をLINE連携で自動化。リピート率20%向上</h3>
+                        <p class="case-client">〇〇サービス株式会社 様</p>
+                    </div>
+                </a>
             </div>
             <div class="text-center mt-40 fade-in-up">
-                <a href="#" class="btn-outline">導入事例一覧を見る</a>
+                <a href="#" class="link-arrow">VIEW ALL CASE STUDIES</a>
             </div>
         </div>
     </section>
 
-    <section id="news" class="news section-padding">
+    <section class="security section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title text-center fade-in-up">エンタープライズ水準のセキュリティ<span>Security & Compliance</span></h2>
+            <div class="security-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;">
+                <div class="security-item fade-in-up" style="padding: 40px 30px; background: #fff; border: 1px solid #eee; border-radius: 0; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+                    <h3 style="margin-bottom: 15px; font-size: 1.2rem;">ISMS認証取得</h3>
+                    <p style="font-size: 0.95rem; color: #555; line-height: 1.6;">情報セキュリティマネジメントシステム（ISMS）の国際規格「ISO/IEC 27001」を取得し、厳格な情報管理を実施しています。</p>
+                </div>
+                <div class="security-item fade-in-up" style="transition-delay: 0.2s; padding: 40px 30px; background: #fff; border: 1px solid #eee; border-radius: 0; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+                    <h3 style="margin-bottom: 15px; font-size: 1.2rem;">堅牢なインフラ基盤</h3>
+                    <p style="font-size: 0.95rem; color: #555; line-height: 1.6;">AWSやAzureなど、世界最高水準のセキュリティを誇るクラウドインフラを採用。冗長化と定期的なバックアップで可用性を担保します。</p>
+                </div>
+                <div class="security-item fade-in-up" style="transition-delay: 0.4s; padding: 40px 30px; background: #fff; border: 1px solid #eee; border-radius: 0; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+                    <h3 style="margin-bottom: 15px; font-size: 1.2rem;">コンプライアンス遵守</h3>
+                    <p style="font-size: 0.95rem; color: #555; line-height: 1.6;">個人情報保護法をはじめとする各種法令・ガイドラインを遵守。定期的な社内教育を通じ、全社員のリテラシー向上に努めています。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="flow section-padding">
+        <div class="container">
+            <h2 class="section-title text-center fade-in-up">導入支援の流れ<span>Flow</span></h2>
+            <div class="flow-list">
+                <div class="flow-item fade-in-up">
+                    <span class="flow-num">01</span>
+                    <h3>無料相談・ヒアリング</h3>
+                    <p>現状の課題やご要望をお伺いします。専門用語は使わず、わかりやすくご説明します。</p>
+                </div>
+                <div class="flow-item fade-in-up" style="transition-delay: 0.2s;">
+                    <span class="flow-num">02</span>
+                    <h3>ご提案・お見積り</h3>
+                    <p>最適なITツールの選定や開発プラン、お見積書をご提示します。</p>
+                </div>
+                <div class="flow-item fade-in-up" style="transition-delay: 0.4s;">
+                    <span class="flow-num">03</span>
+                    <h3>開発・導入支援</h3>
+                    <p>要件に基づきシステム開発やツールの導入設定を行います。</p>
+                </div>
+                <div class="flow-item fade-in-up" style="transition-delay: 0.6s;">
+                    <span class="flow-num">04</span>
+                    <h3>運用・定着化サポート</h3>
+                    <p>導入後も、操作研修や運用保守を継続してサポートします。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about section-padding" style="background-color: var(--bg-dark); color: #fff;">
+        <div class="container text-center fade-in-up">
+            <h2 class="section-title" style="color: #fff;">私たちの想い<span style="color: rgba(255,255,255,0.2);">Vision</span></h2>
+            <p style="line-height: 2; margin-top: 30px; color: #ddd;">「ITツールを導入すること」がゴールではありません。<br>現場で働く人々の業務が楽になり、会社全体が成長して初めてDXは成功したと言えます。<br>私たちは地域の中小企業の皆様の「頼れるIT部門」として、二人三脚で課題解決に取り組みます。</p>
+            <div class="mt-40">
+                <a href="company.html" class="btn-outline" style="color: #fff; border-color: #fff;">会社概要を見る</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="leadership section-padding">
+        <div class="container text-center">
+            <h2 class="section-title fade-in-up">経営陣・専門家チーム<span>Leadership</span></h2>
+            <p class="fade-in-up" style="margin-bottom: 40px; color: #555;">各分野のプロフェッショナルが、貴社の課題解決を強力にサポートします。</p>
+            <div class="leadership-grid" style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
+                <div class="leader-item hover-target fade-in-up" style="width: 280px; text-align: left;">
+                    <div style="width: 100%; aspect-ratio: 1/1; background: #EBE5E0; border-radius: 0; margin-bottom: 20px; overflow: hidden;">
+                        <img src="images/image_5.jpg" alt="代表取締役" class="img-grayscale">
+                    </div>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 5px;">松本 〇〇</h3>
+                    <p style="color: var(--accent-color); font-weight: bold; font-size: 0.9rem; margin-bottom: 10px;">代表取締役社長 / CEO</p>
+                    <p style="font-size: 0.9rem; color: #666; line-height: 1.6;">大手SIerを経て独立。技術と経営の橋渡し役として多数のDXプロジェクトを牽引。</p>
+                </div>
+                <div class="leader-item hover-target fade-in-up" style="transition-delay: 0.2s; width: 280px; text-align: left;">
+                    <div style="width: 100%; aspect-ratio: 1/1; background: #EBE5E0; border-radius: 0; margin-bottom: 20px; overflow: hidden;">
+                        <img src="images/image_3.jpg" alt="CTO" class="img-grayscale">
+                    </div>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 5px;">鈴木 〇〇</h3>
+                    <p style="color: var(--accent-color); font-weight: bold; font-size: 0.9rem; margin-bottom: 10px;">取締役 / CTO</p>
+                    <p style="font-size: 0.9rem; color: #666; line-height: 1.6;">クラウドインフラ設計のスペシャリスト。セキュアでスケーラブルなシステム基盤を統括。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sustainability section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title text-center fade-in-up">サステナビリティへの取り組み<span>Sustainability</span></h2>
+            <div class="sustainability-inner fade-in-up" style="display: flex; gap: 60px; align-items: center; margin-top: 40px; flex-wrap: wrap;">
+                <div class="sustainability-image hover-target" style="flex: 1; min-width: 300px; overflow: hidden;">
+                    <img src="images/image_4.jpg" alt="サステナビリティ" class="img-grayscale" style="width: 100%; border-radius: 0; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                </div>
+                <div class="sustainability-text" style="flex: 1; min-width: 300px;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 20px;">ITの力で、持続可能な社会の実現へ</h3>
+                    <p style="margin-bottom: 25px; color: #555; line-height: 1.8;">事業活動を通じて社会課題の解決に取り組み、持続可能な社会（SDGs）の実現に貢献します。</p>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;"><span style="position: absolute; left: 0; color: var(--accent-color); font-weight: bold;">✓</span> ペーパーレス化・業務効率化による環境負荷低減</li>
+                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;"><span style="position: absolute; left: 0; color: var(--accent-color); font-weight: bold;">✓</span> 多様な人材が活躍できる職場環境の構築（ダイバーシティ推進）</li>
+                        <li style="margin-bottom: 15px; padding-left: 25px; position: relative;"><span style="position: absolute; left: 0; color: var(--accent-color); font-weight: bold;">✓</span> 地域の中小企業へのDX支援を通じた地方創生への貢献</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="company-summary section-padding">
+        <div class="container">
+            <h2 class="section-title text-center fade-in-up">会社概要<span>Company</span></h2>
+            <div class="company-summary-inner fade-in-up" style="max-width: 800px; margin: 0 auto;">
+                <table class="profile-table">
+                    <tbody>
+                        <tr>
+                            <th>会社名</th>
+                            <td>株式会社ネクストソリューションズ (Next Solutions Inc.)</td>
+                        </tr>
+                        <tr>
+                            <th>代表者</th>
+                            <td>代表取締役社長 松本 〇〇</td>
+                        </tr>
+                        <tr>
+                            <th>所在地</th>
+                            <td>〒100-0000<br>東京都〇〇区〇〇 1-2-3 XXビル 4F</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="text-center mt-40">
+                    <a href="company.html" class="link-arrow">VIEW COMPANY PROFILE</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="news" class="news section-padding bg-light">
         <div class="container news-inner">
             <h2 class="section-title fade-in-up">お知らせ<span>News</span></h2>
             <ul class="news-list">
@@ -309,6 +670,45 @@
             </ul>
             <div class="news-more-btn text-center mt-40 fade-in-up">
                 <a href="#" class="btn-outline">お知らせ一覧を見る</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq section-padding">
+        <div class="container">
+            <h2 class="section-title text-center fade-in-up">よくあるご質問<span>FAQ</span></h2>
+            <div class="faq-list">
+                <div class="faq-item fade-in-up">
+                    <div class="faq-q">ITに関する知識が全くないのですが、相談しても大丈夫でしょうか？</div>
+                    <div class="faq-a">はい、全く問題ございません。専門用語をできるだけ使わず、わかりやすく丁寧にご説明いたします。現状のお困りごとをそのままお聞かせください。</div>
+                </div>
+                <div class="faq-item fade-in-up" style="transition-delay: 0.1s;">
+                    <div class="faq-q">相談や見積もりに費用はかかりますか？</div>
+                    <div class="faq-a">いいえ、初回のご相談およびお見積もりの作成は「無料」で承っております。まずはお気軽にお問い合わせフォームよりご連絡ください。</div>
+                </div>
+                <div class="faq-item fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="faq-q">東京都以外の地域でも対応可能ですか？</div>
+                    <div class="faq-a">はい、全国対応可能です。オンライン（Zoom等）でのヒアリングやお打ち合わせにて、スムーズにプロジェクトを進める体制を整えております。</div>
+                </div>
+            </div>
+            <div class="text-center mt-40 fade-in-up">
+                <a href="contact.html" class="btn-outline">その他のお問い合わせはこちら</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="careers section-padding bg-dark">
+        <div class="container">
+            <div class="careers-inner fade-in-up" style="display: flex; flex-wrap: wrap; gap: 60px; align-items: center;">
+                <div style="flex: 1; min-width: 300px; overflow: hidden;" class="hover-target">
+                    <img src="images/image_3.jpg" class="img-grayscale" alt="Careers" style="width: 100%;">
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <h2 class="section-title" style="color: #fff; margin-bottom: 30px;">採用情報<span style="color: rgba(255,255,255,0.04);">Careers</span></h2>
+                    <h3 style="color: var(--accent-color); font-family: var(--font-en); font-size: 3rem; margin-bottom: 20px; line-height: 1.1; letter-spacing: 0.05em;">JOIN OUR<br>PROFESSIONAL TEAM</h3>
+                    <p style="color: rgba(255,255,255,0.7); margin-bottom: 40px; line-height: 1.8;">私たちは、テクノロジーで社会課題を解決する仲間を募集しています。<br>圧倒的な成長環境で、共に未来を創りませんか。</p>
+                    <a href="#" class="link-arrow">VIEW OPEN POSITIONS</a>
+                </div>
             </div>
         </div>
     </section>
@@ -389,7 +789,7 @@
                     }
                 });
             }, { rootMargin: '0px 0px -50px 0px' });
-            document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+            document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right').forEach(el => observer.observe(el));
 
             // ヘッダーのスクロール処理
             const header = document.querySelector('.header');
@@ -398,13 +798,10 @@
             window.addEventListener('scroll', () => {
                 let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-                // トップページ透過ヘッダーの背景色切り替え
-                if (header.classList.contains('header-transparent')) {
-                    if (scrollTop > 50) {
-                        header.classList.add('scrolled');
-                    } else {
-                        header.classList.remove('scrolled');
-                    }
+                if (scrollTop > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
                 }
 
                 // ヘッダーの表示・非表示

@@ -5,16 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>会社概要 | 株式会社ネクストソリューションズ</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --accent-color: #FF5A00; /* インダストリアル・オレンジ */
+            --bg-dark: #0B131F; /* ディープ・ネイビー */
+            --text-main: #111111;
+            --font-en: 'Oswald', sans-serif;
+        }
         .fade-in-up {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transform: translateY(40px) scale(0.98);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .fade-in-up.is-visible {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
+        }
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-40px) scale(0.98);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fade-in-left.is-visible {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+        }
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(40px) scale(0.98);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fade-in-right.is-visible {
+            opacity: 1;
+            transform: translateX(0) scale(1);
         }
 
         /* 大きい画面での左右の余白を調整し、コンテンツ幅を広げる */
@@ -23,6 +47,27 @@
             width: 92% !important;
             margin-left: auto !important;
             margin-right: auto !important;
+        }
+
+        /* ボタンのモダン化 */
+        .btn-primary {
+            background: var(--accent-color) !important;
+            border-radius: 0 !important;
+            font-family: var(--font-en) !important;
+            box-shadow: none !important;
+            border: none !important;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            color: #fff !important;
+        }
+        .btn-primary::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: var(--bg-dark); transition: left 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            z-index: -1; transform: skewX(-15deg); transform-origin: bottom left;
+        }
+        .btn-primary:hover::before {
+            left: 0; transform: skewX(0);
         }
     </style>
 </head>
@@ -96,9 +141,9 @@
     <section class="message section-padding">
         <div class="container">
             <h2 class="section-title text-center fade-in-up">代表挨拶<span>Message</span></h2>
-            <div class="message-inner fade-in-up">
-                <div class="message-image">
-                    <img src="images/image_5.jpg" alt="代表取締役社長 松本">
+            <div class="message-inner hover-target fade-in-up">
+                <div class="message-image" style="overflow: hidden;">
+                    <img src="images/image_5.jpg" alt="代表取締役社長 松本" class="img-grayscale">
                 </div>
                 <div class="message-text">
                     <h3 class="message-catch">「技術」が主役ではない。<br>人が活きるためのDXを。</h3>
@@ -129,6 +174,18 @@
                         <td>10,000,000円</td>
                     </tr>
                     <tr>
+                        <th>従業員数</th>
+                        <td>120名（2026年4月現在）</td>
+                    </tr>
+                    <tr>
+                        <th>主要取引先</th>
+                        <td>〇〇製造株式会社、株式会社△△ロジスティクス、日本□□銀行 ほか</td>
+                    </tr>
+                    <tr>
+                        <th>取引銀行</th>
+                        <td>〇〇銀行 本店、△△銀行 〇〇支店</td>
+                    </tr>
+                    <tr>
                         <th>代表者</th>
                         <td>代表取締役社長 松本 〇〇</td>
                     </tr>
@@ -136,8 +193,10 @@
                         <th>所在地</th>
                         <td>
                             〒100-0000<br>
-                            東京都〇〇区〇〇 1-2-3 XXビル 4F<br>
-                            <a href="#" class="map-link">Google Mapで見る</a>
+                            東京都〇〇区〇〇 1-2-3 XXビル 4F
+                            <div style="margin-top: 20px; border: 2px solid var(--color-primary); height: 250px; background-color: var(--color-bg-light); display: flex; align-items: center; justify-content: center; font-family: var(--font-en); font-weight: 700; color: var(--color-text-light);">
+                                [ GOOGLE MAP IFRAME PLACEHOLDER ]
+                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -148,8 +207,56 @@
                             ・Webサイト制作および運用支援
                         </td>
                     </tr>
+                    <tr>
+                        <th>認証・資格</th>
+                        <td>ISO/IEC 27001 (ISMS) 認証取得<br>AWS セレクトティアサービスパートナー</td>
+                    </tr>
                 </tbody>
             </table>
+        </div>
+    </section>
+
+    <section class="leadership section-padding bg-light">
+        <div class="container text-center">
+            <h2 class="section-title fade-in-up">役員紹介<span>Leadership</span></h2>
+            <div class="leadership-grid" style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 40px;">
+                <div class="leader-item hover-target fade-in-up" style="width: 280px; text-align: left;">
+                    <div style="width: 100%; aspect-ratio: 1/1; background: #EBE5E0; border-radius: 0; margin-bottom: 20px; overflow: hidden;">
+                        <img src="images/image_5.jpg" alt="代表取締役" class="img-grayscale">
+                    </div>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 5px;">松本 〇〇</h3>
+                    <p style="color: var(--accent-color); font-weight: bold; font-size: 0.9rem; margin-bottom: 10px; font-family: var(--font-en);">CEO</p>
+                    <p style="font-size: 0.9rem; color: #666; line-height: 1.6;">大手SIerを経て独立。技術と経営の橋渡し役として多数のDXプロジェクトを牽引。</p>
+                </div>
+                <div class="leader-item hover-target fade-in-up" style="transition-delay: 0.2s; width: 280px; text-align: left;">
+                    <div style="width: 100%; aspect-ratio: 1/1; background: #EBE5E0; border-radius: 0; margin-bottom: 20px; overflow: hidden;">
+                        <img src="images/image_3.jpg" alt="CTO" class="img-grayscale">
+                    </div>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 5px;">鈴木 〇〇</h3>
+                    <p style="color: var(--accent-color); font-weight: bold; font-size: 0.9rem; margin-bottom: 10px; font-family: var(--font-en);">CTO</p>
+                    <p style="font-size: 0.9rem; color: #666; line-height: 1.6;">クラウドインフラ設計のスペシャリスト。セキュアでスケーラブルなシステム基盤を統括。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="locations section-padding" style="background-color: var(--bg-dark);">
+        <div class="container">
+            <h2 class="section-title text-center fade-in-up" style="color: #fff;">拠点一覧<span style="color: rgba(255,255,255,0.04);">Locations</span></h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 60px;">
+                <div class="fade-in-up" style="border-top: 4px solid var(--accent-color); background: rgba(255,255,255,0.03); padding: 40px;">
+                    <h3 style="color: #fff; font-family: var(--font-en); font-size: 1.5rem; letter-spacing: 0.05em; margin-bottom: 20px;">TOKYO HQ</h3>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.8;">〒100-0000<br>東京都〇〇区〇〇 1-2-3 XXビル 4F<br>TEL: 03-XXXX-XXXX</p>
+                </div>
+                <div class="fade-in-up" style="border-top: 4px solid var(--accent-color); background: rgba(255,255,255,0.03); padding: 40px; transition-delay: 0.2s;">
+                    <h3 style="color: #fff; font-family: var(--font-en); font-size: 1.5rem; letter-spacing: 0.05em; margin-bottom: 20px;">OSAKA BRANCH</h3>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.8;">〒530-0000<br>大阪府大阪市北区〇〇 4-5-6 YYビル 8F<br>TEL: 06-XXXX-XXXX</p>
+                </div>
+                <div class="fade-in-up" style="border-top: 4px solid var(--accent-color); background: rgba(255,255,255,0.03); padding: 40px; transition-delay: 0.4s;">
+                    <h3 style="color: #fff; font-family: var(--font-en); font-size: 1.5rem; letter-spacing: 0.05em; margin-bottom: 20px;">FUKUOKA R&D</h3>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.8;">〒810-0000<br>福岡県福岡市中央区〇〇 7-8-9 ZZビル 2F<br>TEL: 092-XXXX-XXXX</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -230,13 +337,20 @@
                     }
                 });
             }, { rootMargin: '0px 0px -50px 0px' });
-            document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+            document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right').forEach(el => observer.observe(el));
 
             // ヘッダーのスクロール連動表示・非表示
             let lastScrollTop = 0;
             const header = document.querySelector('.header');
             window.addEventListener('scroll', () => {
                 let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                if (scrollTop > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+
                 if (scrollTop > lastScrollTop && scrollTop > header.offsetHeight) {
                     header.classList.add('header--hidden');
                 } else {
